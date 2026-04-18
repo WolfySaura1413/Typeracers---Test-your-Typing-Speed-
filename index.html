@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typeracers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="stats-bar">
+            <div class="stat-box">
+                <span class="stat-label">WPM</span>
+                <span class="stat-value" id="wpm-display">0</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">Time</span>
+                <span class="stat-value" id="time-display">0s</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">Accuracy</span>
+                <span class="stat-value" id="accuracy-display">100%</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">Errors</span>
+                <span class="stat-value" id="errors-display">0</span>
+            </div>
+        </header>
+
+        <main class="game-area">
+            <div class="sentence-display" id="sentence-display">
+                <!-- Characters will be injected here -->
+            </div>
+            
+            <div class="input-wrapper">
+                <input type="text" id="typing-input" class="typing-input" autocomplete="off" spellcheck="false" placeholder="Start typing...">
+            </div>
+
+            <div class="controls">
+                <button id="btn-restart" class="btn btn-secondary">Restart</button>
+                <button id="btn-new-sentence" class="btn btn-primary">Generate New Sentence</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Results Modal -->
+    <div id="results-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2 class="modal-title">Race Complete!</h2>
+            
+            <div class="modal-stats">
+                <div class="modal-stat">
+                    <span class="m-label">WPM</span>
+                    <span class="m-value" id="modal-wpm">0</span>
+                </div>
+                <div class="modal-stat">
+                    <span class="m-label">Time</span>
+                    <span class="m-value" id="modal-time">0s</span>
+                </div>
+                <div class="modal-stat">
+                    <span class="m-label">Accuracy</span>
+                    <span class="m-value" id="modal-accuracy">100%</span>
+                </div>
+                <div class="modal-stat">
+                    <span class="m-label">Errors</span>
+                    <span class="m-value" id="modal-errors">0</span>
+                </div>
+            </div>
+
+            <div id="pb-notification" class="pb-notification hidden">
+                🎉 New Personal Best! 🎉
+            </div>
+
+            <div class="chart-container">
+                <canvas id="wpm-chart"></canvas>
+            </div>
+
+            <button id="btn-replay" class="btn btn-replay">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rotate-cw"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+                Replay
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
